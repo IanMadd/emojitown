@@ -65,6 +65,7 @@
     {{ end }}
 
     {{ $emojifiles = uniq $emojifiles}}
+
     {{ range $file := $emojifiles }}
         {{ $title := "" }}
         {{ range $emoji, $filename := $data.emoji }}
@@ -73,8 +74,6 @@
             {{ end }}
         {{ end }}
         {{ $image := print "/emoji/" $file }}
-        {{ if fileExists (print "static" $image) }}
-            <img src="{{$image}}" alt="{{$title}}" title="{{$title}}" class="emoji">
-        {{ end }}
+        <img src="{{$image}}" alt="{{$title}}" title="{{$title}}" class="emoji">
     {{ end }}
 {{ end }}
